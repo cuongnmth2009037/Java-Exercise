@@ -16,9 +16,9 @@ public abstract class BaseEntity {
     public BaseEntity() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
-        this.createdBy = 1;
-        this.updatedBy = 1;
-        this.deletedBy = 1;
+        this.createdBy = 0;
+        this.updatedBy = 0;
+        this.deletedBy = 0;
         this.status = ProductStatus.ACTIVE;
     }
 

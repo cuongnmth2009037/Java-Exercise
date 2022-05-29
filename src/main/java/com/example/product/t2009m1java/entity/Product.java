@@ -2,8 +2,11 @@ package com.example.product.t2009m1java.entity;
 
 import com.example.product.t2009m1java.entity.base.BaseEntity;
 import com.example.product.t2009m1java.entity.entityEnum.ProductStatus;
+import com.example.product.t2009m1java.util.ValidationRegexHelper;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+
 
 public class Product extends BaseEntity {
     private int id;
@@ -14,15 +17,18 @@ public class Product extends BaseEntity {
     private String thumbnail;
     private String manufactureEmail;
     private String manufacturePhone;
+    private HashMap<String,String> errors;
 
 
     public Product() {
         this.name = "";
         this.description = "";
         this.detail = "";
+        this.price = 0.0;
         this.thumbnail = "";
         this.manufactureEmail = "";
         this.manufacturePhone = "";
+        errors = new HashMap<>();
     }
 
 
@@ -36,6 +42,7 @@ public class Product extends BaseEntity {
         this.thumbnail = thumbnail;
         this.manufactureEmail = manufactureEmail;
         this.manufacturePhone = manufacturePhone;
+        errors = new HashMap<>();
     }
 
     public Product(int id, String name, String description, String detail, double price, String thumbnail, String manufactureEmail, String manufacturePhone) {
@@ -47,6 +54,7 @@ public class Product extends BaseEntity {
         this.thumbnail = thumbnail;
         this.manufactureEmail = manufactureEmail;
         this.manufacturePhone = manufacturePhone;
+        errors = new HashMap<>();
     }
 
     public Product(String name, String description, String detail, double price, String thumbnail, String manufactureEmail, String manufacturePhone) {
@@ -57,6 +65,7 @@ public class Product extends BaseEntity {
         this.thumbnail = thumbnail;
         this.manufactureEmail = manufactureEmail;
         this.manufacturePhone = manufacturePhone;
+        errors = new HashMap<>();
     }
 
 
@@ -122,6 +131,38 @@ public class Product extends BaseEntity {
 
     public void setManufacturePhone(String manufacturePhone) {
         this.manufacturePhone = manufacturePhone;
+    }
+
+    public HashMap<String, String> getErrors() {
+        return errors;
+    }
+    public boolean isValid() {
+        return this.checkValid();
+    }
+
+    public boolean checkValid() {
+        if(name == "" || name == null) {
+            errors.put("name", "Please enter name");
+        }
+        if(price == 0) {
+            errors.put("price", "Please enter price");
+        }
+        if(thumbnail == "" || thumbnail == null) {
+            errors.put("thumbnail", "Please enter thumbnail");
+        }
+        if(manufactureEmail == "" || manufactureEmail == null) {
+            errors.put("manufactureEmail", "Please enter manufactureEmail");
+        }
+        if(manufacturePhone == "" || manufacturePhone == null) {
+            errors.put("manufacturePhone", "Please enter manufacturePhone");
+        }
+        if(manufactureEmail != "" && !ValidationRegexHelper.validateEmail(manufactureEmail)) {
+            errors.put("manufactureEmail", "Invalid email");
+        }
+        if(manufacturePhone != "" && !ValidationRegexHelper.validatePhone(manufacturePhone)) {
+            errors.put("manufacturePhone", "Invalid phone number");
+        }
+        return errors.size() == 0;
     }
 }
 
