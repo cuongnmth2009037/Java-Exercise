@@ -35,4 +35,12 @@
         <servlet-name>DeleteProductServlet</servlet-name>
         <url-pattern>/product/delete</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LayoutForm</servlet-name>
+        <jsp-file>/admin/layout/form.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LayoutForm</servlet-name>
+        <url-pattern>/layout-form</url-pattern>
+    </servlet-mapping>
 </web-app>
