@@ -1,6 +1,6 @@
 package com.example.product.t2009m1java.entity.base;
 
-import com.example.product.t2009m1java.entity.entityEnum.ProductStatus;
+import com.example.product.t2009m1java.entity.entityEnum.ObjectStatus;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +11,7 @@ public abstract class BaseEntity {
     public int createdBy;
     public int updatedBy;
     public int deletedBy;
-    public ProductStatus status;
+    public ObjectStatus status;
 
     public BaseEntity() {
         this.createdAt = LocalDateTime.now();
@@ -19,17 +19,17 @@ public abstract class BaseEntity {
         this.createdBy = 0;
         this.updatedBy = 0;
         this.deletedBy = 0;
-        this.status = ProductStatus.ACTIVE;
+        this.status = ObjectStatus.ACTIVE;
     }
 
-    public BaseEntity(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ProductStatus productStatus) {
+    public BaseEntity(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ObjectStatus status) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
         this.createdBy = createdBy;
         this.updatedBy = updatedBy;
         this.deletedBy = deletedBy;
-        this.status = productStatus;
+        this.status = status;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -80,11 +80,11 @@ public abstract class BaseEntity {
         this.deletedBy = deletedBy;
     }
 
-    public ProductStatus getStatus() {
+    public ObjectStatus getStatus() {
         return status;
     }
 
-    public void setStatus(ProductStatus status) {
+    public void setStatus(ObjectStatus status) {
         this.status = status;
     }
 }

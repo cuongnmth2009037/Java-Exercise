@@ -1,7 +1,7 @@
 package com.example.product.t2009m1java.entity;
 
 import com.example.product.t2009m1java.entity.base.BaseEntity;
-import com.example.product.t2009m1java.entity.entityEnum.ProductStatus;
+import com.example.product.t2009m1java.entity.entityEnum.ObjectStatus;
 import com.example.product.t2009m1java.util.ValidationRegexHelper;
 
 import java.time.LocalDateTime;
@@ -32,8 +32,8 @@ public class Product extends BaseEntity {
     }
 
 
-    public Product(int id, String name, String description, String detail, double price, String thumbnail, String manufactureEmail, String manufacturePhone, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ProductStatus productStatus) {
-        super(createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, productStatus);
+    public Product(int id, String name, String description, String detail, double price, String thumbnail, String manufactureEmail, String manufacturePhone, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ObjectStatus objectStatus) {
+        super(createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, objectStatus);
         this.id = id;
         this.name = name;
         this.description = description;

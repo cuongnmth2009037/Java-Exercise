@@ -51,7 +51,8 @@
                 <td><%= product.getUpdatedAt() %></td>
                 <td>
                     <a class="btn btn-primary" href="/product/update?id=<%= product.getId() %>">Edit</a>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<%= product.getId() %>">Delete</button>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<%= product.getId() %>">Delete</button><br><br>
+                    <a class="btn btn-warning" href="/shopping-cart/add?productId=<%= product.getId()%>&quantity=1">Add to cart</a>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal<%= product.getId() %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

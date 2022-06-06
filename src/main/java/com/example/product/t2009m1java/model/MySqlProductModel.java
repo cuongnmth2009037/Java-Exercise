@@ -2,7 +2,7 @@ package com.example.product.t2009m1java.model;
 
 import com.example.product.t2009m1java.constant.SqlConstant;
 import com.example.product.t2009m1java.entity.Product;
-import com.example.product.t2009m1java.entity.entityEnum.ProductStatus;
+import com.example.product.t2009m1java.entity.entityEnum.ObjectStatus;
 import com.example.product.t2009m1java.util.ConnectionHelper;
 
 import java.sql.Connection;
@@ -101,7 +101,7 @@ public class MySqlProductModel implements ProductModel {
            Connection connection = ConnectionHelper.getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(SqlConstant.PRODUCT_FIND_BY_ID);
            preparedStatement.setInt(1, id);
-           preparedStatement.setInt(2, ProductStatus.ACTIVE.getValue());
+           preparedStatement.setInt(2, ObjectStatus.ACTIVE.getValue());
            ResultSet rs = preparedStatement.executeQuery();
            while (rs.next()){
                String name = rs.getString("name");
@@ -120,7 +120,7 @@ public class MySqlProductModel implements ProductModel {
                int createdBy = rs.getInt("createdBy");
                int updatedBy  = rs.getInt("updatedBy");
                int deletedBy  = rs.getInt("deletedBy");
-               ProductStatus status = ProductStatus.values()[rs.getInt("status")];
+               ObjectStatus status = ObjectStatus.values()[rs.getInt("status")];
                Product product = new Product(id, name, description, detail, price, thumbnail, manufactureEmail, manufacturePhone, createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, status);
                return product;
            }
@@ -138,7 +138,7 @@ public class MySqlProductModel implements ProductModel {
         try {
             Connection connection = ConnectionHelper.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SqlConstant.PRODUCT_FIND_ALL);
-            preparedStatement.setInt(1, ProductStatus.ACTIVE.getValue());
+            preparedStatement.setInt(1, ObjectStatus.ACTIVE.getValue());
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){
                 int id = rs.getInt("id");
@@ -158,7 +158,7 @@ public class MySqlProductModel implements ProductModel {
                 int createdBy = rs.getInt("createdBy");
                 int updatedBy = rs.getInt("updatedBy");
                 int deletedBy = rs.getInt("deletedBy");
-                ProductStatus status = ProductStatus.of(rs.getInt("status"));
+                ObjectStatus status = ObjectStatus.of(rs.getInt("status"));
                 Product product = new Product(id, name, description, detail, price, thumbnail, manufactureEmail, manufacturePhone, createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, status);
                 products.add(product);
             }

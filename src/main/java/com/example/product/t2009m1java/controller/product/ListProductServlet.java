@@ -1,7 +1,6 @@
-package com.example.product.t2009m1java.controller;
+package com.example.product.t2009m1java.controller.product;
 
 import com.example.product.t2009m1java.entity.Product;
-import com.example.product.t2009m1java.entity.entityEnum.ProductStatus;
 import com.example.product.t2009m1java.model.MySqlProductModel;
 import com.example.product.t2009m1java.model.ProductModel;
 
@@ -10,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.util.List;
 
-public class DeleteProductServlet extends HttpServlet {
+public class ListProductServlet extends HttpServlet {
     private ProductModel productModel;
 
     @Override
@@ -22,12 +21,8 @@ public class DeleteProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        Product product = productModel.findById(id);
-        product.setStatus(ProductStatus.DELETED);
-        product.setDeletedAt(LocalDateTime.now());
-        if (productModel.update(id,product)){
-            resp.sendRedirect("/product/list");
-        }
+        List<Product> productList = productModel.findAll();
+        req.setAttribute("productlist", productList);
+        req.getRequestDispatcher("/product/list.jsp").forward(req,resp);
     }
 }
