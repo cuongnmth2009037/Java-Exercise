@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/includes/slidebar.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin/includes" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/client/shopping-cart/show.jsp" value="file://$PROJECT_DIR$/src/main/webapp/client/shopping-cart" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/client/users/register-success.jsp" value="file://$PROJECT_DIR$/src/main/webapp/client/users" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/product/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/product" />
       </map>
     </option>

@@ -11,8 +11,8 @@ public class ConnectionHelper {
     private static Connection connection;
     public static Connection getConnection(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
             if (connection == null || connection.isClosed()){
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
             }
             System.out.println("Connection success!");

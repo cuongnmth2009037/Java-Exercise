@@ -1,6 +1,9 @@
 package com.example.product.t2009m1java.model;
 
+import com.example.product.t2009m1java.entity.Account;
 import com.example.product.t2009m1java.entity.Product;
+import com.example.product.t2009m1java.entity.entityEnum.ObjectStatus;
+import com.example.product.t2009m1java.model.seeder.MySqlAccountModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -46,6 +49,19 @@ class MySqlProductModelTest {
         List<Product> products = productModel.findAll();
         assertNotEquals(0, products.size());
     }
+
+    @Test
+    void addaccount() {
+        MySqlAccountModel mySqlAccountModel = new MySqlAccountModel();
+        Account account = new Account();
+        account.setUsername("cuong");
+        account.setPassword("c12345");
+        account.setConfirmPassword("c12345");
+        boolean result =  mySqlAccountModel.save(account);
+        System.out.println(result);
+    }
+
+
 
 
 

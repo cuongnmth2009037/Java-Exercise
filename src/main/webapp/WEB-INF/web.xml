@@ -84,4 +84,32 @@
         <url-pattern>/shopping-cart/remove</url-pattern>
     </servlet-mapping>
     <!--end client servelet -->
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.product.t2009m1java.controller.account.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.example.product.t2009m1java.controller.account.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <!--<filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.example.product.t2009m1java.filterdemo.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/product/*</url-pattern>
+        <url-pattern>/product/**</url-pattern>
+    </filter-mapping>-->
 </web-app>
